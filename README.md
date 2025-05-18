@@ -20,7 +20,7 @@ This is a complete Selenium automation project using Java, TestNG and Maven. It 
 - Full flow automation
 
 
-Flight Booking Automation Test Case Description
+##  Flight Booking Automation Test Case Description
 
 This automated test case uses Selenium WebDriver and TestNG to simulate a complete flight booking process on https://phptravels.net/.
 
