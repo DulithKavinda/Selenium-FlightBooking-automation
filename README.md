@@ -59,5 +59,5 @@ Steps performed:
 
 7. Confirmation and Exit
    - Verifies the invoice page is displayed
-   - (Optional) Captures screenshot of the invoice
+   - Captures screenshot of the invoice
    - Closes the browser
