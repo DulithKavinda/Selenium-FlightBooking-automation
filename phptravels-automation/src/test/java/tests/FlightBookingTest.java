@@ -58,7 +58,7 @@ public class FlightBookingTest {
         confirmationPage.verifyReceiptDetails();
         confirmationPage.printReceiptDetails();
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String filePath = "D:\\QA\\HotelGuestBooking-automation\\phptravels-automation\\src\\screenshots\\screenshot_" + timestamp + ".png";
+        String filePath = "D:\\QA\\Selenium-FlightBooking-automation\\phptravels-automation\\src\\screenshots\\screenshot_" + timestamp + ".png";
         confirmationPage.captureScreenshot(filePath);
 
 
