@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.WebDriverSetup;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FlightBookingTest {
     WebDriver driver;
@@ -55,14 +57,18 @@ public class FlightBookingTest {
 
         confirmationPage.verifyReceiptDetails();
         confirmationPage.printReceiptDetails();
-        confirmationPage.captureScreenshot("D:\\QA\\HotelGuestBooking-automation\\phptravels-automation\\src\\screenshots");
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String filePath = "D:\\QA\\HotelGuestBooking-automation\\phptravels-automation\\src\\screenshots\\screenshot_" + timestamp + ".png";
+        confirmationPage.captureScreenshot(filePath);
+
 
     }
 
     @AfterClass
-    public void tearDown() {
+    public void tearDown() throws InterruptedException{
         // Close the driver after the test
         if (driver != null) {
+        Thread.sleep(3000);
             driver.quit();
         }
     }

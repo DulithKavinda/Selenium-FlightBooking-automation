@@ -69,7 +69,6 @@ public class BookingPage {
 
 
 
-    // Similarly for DOB dropdowns
     @FindBy(name = "dob_month_1")
     WebElement dobdropdown;
 
@@ -109,32 +108,25 @@ public class BookingPage {
         email.sendKeys(emailAddr);
         phone.sendKeys(phoneNo);
         address.sendKeys(addr);
-        js.executeScript("window.scrollBy(0, 300)");
+        /*WebElement element1 = driver.findElement(By.xpath("//strong[normalize-space()='Nationality']"));  // Replace with your locator
+        js.executeScript("arguments[0].scrollIntoView(true);", element1);*/
         nationalitylist.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         nationality.sendKeys(nationalityValue);
-
-        Thread.sleep(2000);
         nationalityselect.click();
         Thread.sleep(2000);
 
+        Thread.sleep(1000);
         countrylist.click();
         country.sendKeys(countryValue);
         countryselect.click();
         Thread.sleep(2000);
 
-        WebElement element = driver.findElement(By.name("first_name_1"));  // Replace with your locator
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
 
-
-        //Select nationalitySelect = new Select(nationality);
-        //nationalitySelect.selectByVisibleText(nationalityValue);
-
-        //Select countrySelect = new Select(country);
-        //countrySelect.selectByVisibleText(countryValue);
     }
 
     public void enterTravellerInformation(String tFirstName, String tLastName, String nationalityText,String dob, String day, String year, String tPassport, String tEmail, String tPhone) throws InterruptedException {
+
         travellerFirstName.sendKeys(tFirstName);
         travellerLastName.sendKeys(tLastName);
 
@@ -146,7 +138,7 @@ public class BookingPage {
         new Select(daydropdown).selectByVisibleText(day);
         Thread.sleep(3000);
         new Select(yeardropdown).selectByVisibleText(year);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         travellerPassport.sendKeys(tPassport);
         Thread.sleep(3000);
@@ -154,12 +146,19 @@ public class BookingPage {
         travellerEmail.sendKeys(tEmail);
         Thread.sleep(3000);
 
+        //js.executeScript("window.scrollBy(0, 1000)");
+
         travellerPhone.sendKeys(tPhone);
         Thread.sleep(3000);
+
+
+
 
     }
 
     public void selectPaymentMethod() throws InterruptedException {
+
+
         payLaterOption.click();
         Thread.sleep(3000);
         agreeTerms.click();

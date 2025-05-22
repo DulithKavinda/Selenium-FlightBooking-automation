@@ -27,13 +27,13 @@ public class ConfirmationPage {
     @FindBy(xpath = "//table[@class='table table-bordered']/tbody/tr[1]/th[1]")
     WebElement bookingId;
 
-    @FindBy(xpath = "//div[contains(@class, 'text-center')]//strong[normalize-space(text()) and not(child::*)]")
+    @FindBy(xpath = "//table[contains(@class, 'table-bordered')]//th[@class='text-end']/strong")
     WebElement totalAmount;
 
     @FindBy(xpath = "//body[1]/main[1]/div[1]/div[1]/div[3]/table[2]/tbody[1]/tr[1]/th[3]")
     WebElement passengerName;
 
-    /* Verifies if booking receipt is present and extracts key details.*/
+    /* Verifies if booking receipt and extracts key details*/
 
     public boolean verifyReceiptDetails() {
         try {
@@ -50,12 +50,18 @@ public class ConfirmationPage {
         System.out.println("Total Amount: " + totalAmount.getText());
     }
 
-    /*Captures a screenshot of the confirmation receipt page.*/
+    /*Captures a screenshot of the confirmation receipt.*/
     public void captureScreenshot(String filePath) {
-        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File destFile = new File(filePath);
+        File parentDir = destFile.getParentFile();
+        if (!parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             Files.copy(srcFile.toPath(), destFile.toPath());
+            System.out.println("Screenshot saved to: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -36,6 +36,7 @@ public class FlightsPage {
         fromInput.sendKeys(from);
         wait.until(ExpectedConditions.visibilityOf(fromInput)).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
